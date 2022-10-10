@@ -1,24 +1,54 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+
+let name: string = "Ashish";
+let age: number | string | boolean;
+let isStd: boolean = true;
+let hobbies: string[] = ['music', 'cricket'];
+let role: [number, string]; // tuple
+
+let school: any; // -------------------any datat type
+let mychoice: unknown;
+
+
+//-------------------
+let showName: (name: string) => void;
+
+let showAge: (age: number) => number;
+
+let showPlace: (place: string) => never; //----------- return any type 
+
+function printName(name: string)
+{
+  console.log(name)
+}
+
+printName('Test')
+
+//-------------------- Object
+type Person = {
+  name: string;
+  age?: number;   // ? means optional
+};
+
+let person: Person = {
+  name: 'Ashish',
+  age: 40,
+};
+
+//-------------------- Interface
+
+interface Employee{
+  name: string;
+  age: number;
+}
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {name}
     </div>
   );
 }
