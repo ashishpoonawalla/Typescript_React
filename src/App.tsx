@@ -1,56 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./App.css";
+import InputField from './components/InputField';
 
 
-let name: string = "Ashish";
-let age: number | string | boolean;
-let isStd: boolean = true;
-let hobbies: string[] = ['music', 'cricket'];
-let role: [number, string]; // tuple
-
-let school: any; // -------------------any datat type
-let mychoice: unknown;
-
-
-//-------------------
-let showName: (name: string) => void;
-
-let showAge: (age: number) => number;
-
-let showPlace: (place: string) => never; //----------- return any type 
-
-function printName(name: string)
+const App: React.FC = () =>
 {
-  console.log(name)
-}
+  const [todo, setTodo] = useState<string>("")
 
-printName('Test')
+  console.log(todo);
 
-//-------------------- Object
-type Person = {
-  name: string;
-  age?: number;   // ? means optional
-};
-
-let person: Person = {
-  name: 'Ashish',
-  age: 40,
-};
-
-//-------------------- Interface
-
-interface Employee{
-  name: string;
-  age: number;
-}
-
-
-function App() {
   return (
     <div className="App">
-      {name}
+      <span className="heading">Taskify</span>
+      <InputField todo={todo} setTodo={setTodo}/>
     </div>
-  );
+  )
 }
 
 export default App;
